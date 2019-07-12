@@ -29,7 +29,7 @@ def proof_of_work(last_proof):
 def valid_proof(last_hash, proof):
     hashing = f'{proof}'.encode()
     hashed_proof = hashlib.sha256(hashing).hexdigest()
-    return last_hash[6:] == hashed_proof[:6]
+    return last_hash[-6:] == hashed_proof[:6]
 
 
 if __name__ == '__main__':
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         node = sys.argv[1]
     else:
-        node = "http://lambda-coin-test-3.herokuapp.com"
+        node = "https://lambda-coin.herokuapp.com"
 
     coins_mined = 0
 
